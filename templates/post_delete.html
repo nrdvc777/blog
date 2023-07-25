@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 style="color: green"> BlogPostni o'chirish</h1>
+<form action="" method="post"> {% csrf_token %}
+    <p> {{ post.title }} blogni rostan ham o'chirmoqchimisiz?</p>
+    <input type="submit" value="Ha">
+</form>
+{% endblock content %}
