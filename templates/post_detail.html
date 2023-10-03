@@ -7,6 +7,11 @@
     <p>{{ post.body }}</p>
 </div>
 
+{% if post.author == request.user %}
 <a href="{% url 'post_edit' post.pk %}">+Postni taxrirlash</a>
 <a href="{% url 'post_delete' post.pk %}">-Postni o'chirish</a>
+{% elif request.user.is_superuser %}
+<a href="{% url 'post_edit' post.pk %}">+Postni taxrirlash</a>
+<a href="{% url 'post_delete' post.pk %}">-Postni o'chirish</a>
+{% endif %}
 {% endblock content %}

@@ -16,10 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# from django.conf.urls import handler404,handler500
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/',include('accounts.urls')),
     path('', include('blog.urls'))
 ]
+
+handler404 = 'blog.views.pnf404View'
+handler500 = 'blog.views.servererror500'

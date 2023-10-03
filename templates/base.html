@@ -11,18 +11,19 @@
 <header>
     <div class="nav-left">
     <h1><a href="{% url 'home' %}">Django Blogi</a></h1>
+{% if user.is_authenticated %}
     </div>
     <div class="naw-right">
         <a href="{% url 'post_new' %}"> +yangi post qoshish</a>
     </div>
 </header>
-{% if user.is_authenticated %}
+
 <p>{{user.username}}, saytga xushkelibsiz!</p>
 <p><a href="{% url 'logout' %}">Log Out</a></p>
 {% else %}
 <p>Siz saytga kirmagansiz!!</p>
 <a href="{% url 'login' %}">Log In</a>
-<a href="{% url 'signup' %}">Royxatdan otish</a>
+<a href="{% url 'signup' %}">Sign Up</a>
 {% endif %}
 <div>
     {% block content %}
@@ -30,4 +31,4 @@
     {% endblock content %}
 </div>
 </body>
-</html>0
+</html>
